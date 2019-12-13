@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Xin Zhang's Homepage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="keywords" context="Xin Zhang,Xin,Zhang,PhD,Georgia Tech">
+
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/customer.css" rel="stylesheet">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../../ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../js/bootstrap.min.js"></script>
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+					      <script src="../../svn/trunk/html5.js"></sc\
+ript>
+    <![endif]-->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90116312-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body style="padding-top: 50px">
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="row">
+	<div class="col-lg-10 col-lg-offset-1" style="padding-left:0px">
+		<div class="navbar-header">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#nav-top">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+<!--			<a href="http://pag.gatech.edu" class="navbar-brand">PAG</a> -->
+		</div>
+		<div class="navbar-collapse navbar-inverse-collapse collapse" aria-expanded="false" id="nav-top">
+			<ul class="nav navbar-nav">
+				
+				
+				
+				<li class="first  ">
+				<a href="../index.html">Home</a>
+				</li>
+				
+				
+				
+				<li class="  ">
+				<a href="../research.html">Research</a>
+				</li>
+				
+				
+				
+				<li class="  ">
+				<a href="../publications.html">Publications</a>
+				</li>
+				
+				
+				
+				<li class="  ">
+				<a href="../service.html">Service</a>
+				</li>
+				
+				
+				
+				<li class="  ">
+				<a href="../awards.html">Awards</a>
+				</li>
+				
+				
+				
+				<li class="  last">
+				<a href="../about.html">About Me</a>
+				</li>
+				
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+<div class="container">
+<div class="row">
+	<div class="col-lg-10 col-lg-offset-1">
+
+	<p>The implementation of our PLDI'14 paper is available under the following two folders of <a href="javascript:window.open('https://bitbucket.org/psl-lab/jchord');">JChord</a>:</p>
+
+<ul>
+	<li><a href="javascript:window.open('https://bitbucket.org/psl-lab/jchord/src/ec123fc7b19e5dbb66cfce6495edad8a7a251459/main/src/chord/analyses/provenance/?at=master');">main/src/chord/analyses/provenance</a></li>
+	<li><a href="javascript:window.open('https://bitbucket.org/psl-lab/jchord/src/ec123fc7b19e5dbb66cfce6495edad8a7a251459/main/src/chord/project/analyses/provenance/?at=master');">main/src/chord/project/analyses/provenance</a></li>
+</ul>
+
+<p> We assume the reader has a Unix-like environment. To run the framework, please follow the instructions below: </p>
+
+<p><b>1. Set up JChord and benchmarks.</b></p>
+
+<p>The source code of JChord is available at <a href="javascript:window.open('https://bitbucket.org/psl-lab/jchord');"> https://bitbucket.org/psl-lab/jchord</a>.
+Its documents are available at <a href="javascript:window.open('https://www.seas.upenn.edu/~mhnaik/chord/user_guide/index.html');">https://www.seas.upenn.edu/~mhnaik/chord/user_guide/index.html</a>.
+Please follow the instructions to set JChord up.
+The benchmarks (pjbench) are available at <a href="javascript:window.open('https://bitbucket.org/psl-lab/pjbench');">https://bitbucket.org/psl-lab/pjbench</a>. 
+Please complile the benchmark which you want to run the analysis on.
+To do that, run <b>ant</b> under the benchmark folder.
+To compile the benchmarks, you need <a href="javascript:window.open('http://ant.apache.org/');">ant</a> and at least <a href="javascript:window.open('http://www.oracle.com/technetwork/java/javase/downloads/index.html');">JDK</a> 1.5.
+</p>
+
+<p> <b> 2. Set up environment variables.</b></p>
+<p>We will use a Perl script to run the analysis. To do that, we need to set up the following environment variables:</p>
+<ul>
+	<li><b>CHORD_MAIN</b>: main folder of the local JChord copy.</li>
+	<li><b>PJBENCH</b>: root foler of the local pjbench folder. </li>
+	<li><b>PAG_BENCH</b>: root foler of the local pjbench folder. </li>
+</ul>
+
+<p><b>3. Run the analysis.</b></p>
+We will use the <a href="javascript:window.open('https://bitbucket.org/psl-lab/jchord/src/ec123fc7b19e5dbb66cfce6495edad8a7a251459/main/runner.pl?at=master&fileviewer=file-view-default');">runner.pl</a> under the main folder of JChord to execute the analyses.
+<p>To run the pointer analysis:</p>
+<p><i>./runner.pl -mode=serial -program=&#60;benchmark name&#62; -analysis=provenance-kobj -D chord.provenance.client=&#60;polysite&#47;downcast&#62;</i></p>
+<p>Polysite is the monomorphic callsite client we included in the PLDI’14 paper while downcast is a downcast safety checker which we didn't included in the paper.
+</p>
+<p>To run the typestate analysis:</p>
+<p><i>./runner.pl -mode=serial -program=&#60;benchmark name&#62; -analysis=provenance-typestate</i></p>
+
+<p>The output log file is &#60;benchmark path&#62;&#47;chord_output_&#60;analysis name&#62;&#47;log.txt</p>
+
+<br>
+<p>If you still have questions about how to run the analysis after reading the document, feel free to <a href="mailto:xinzhangsjtu1989@gmail.com">contact</a> me. I will get back to you ASAP and update
+this page if needed.</p>
+
+
+	<div class="row">
+	<div class="col-lg-12">
+		<div id="footer">
+			<p>
+			<a href="javascript:window.open('http://www.iubenda.com/privacy-policy/7996308');" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "//cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+			</p>
+		</div>
+	</div>
+</div>
+
+
+	</div>
+</div>
+
+</div></body>
+</html>
+
